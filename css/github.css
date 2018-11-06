@@ -1,0 +1,14 @@
+.githubIMG{
+    background-image: "img/rickmorty.jpg";
+    height: 10px;
+    width: 10px;
+}
+.navBackground{
+    background-color:black;
+    color: gray;
+}
+.inlineData{
+    display: inline;
+    text-align: center;
+    padding: 8px;
+}
