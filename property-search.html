@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Property Search exercise</title>
+    </head>
+    <body>
+        <form method="GET" action="https://request-inspector.glitch.me">
+            <label>What type of property are you interested in?</label>
+            <select name="propertyType">
+                <option  value="condo">Condo</option>
+                <option value="apartment">Apartment</option>
+                <option value="house">House</option>
+                <option value="townhome">Townhome</option>
+            </select>
+                <br>
+            <label>How big of a space are you looking for?</label>
+            <select name="squareFootage">
+                <option value="small">0-1000 square feet</option>
+                <option value="medium">1001-3000 square feet</option>
+                <option value="large">3001-5000 square feet</option>
+            </select>
+                <br>
+                <label for="min_price">Minimum price:</label>
+                <input id="min_price" name="min_price" type="text">
+                <label for="max_price">Maximum Price:</label>
+                <input type="text" name="max_price" id="max_price">
+                    <br>
+                <label for="zip_code">Zip Code:</label>
+                <input type="text" id="zip_code" name="zip_code">
+                    <br>
+            <label>How many bedrooms are you looking for?</label>
+                <input type="radio" name="numOfBedrooms" value="1"> 1
+                <input type="radio" name="numOfBedrooms" value="2"> 2
+                <input type="radio" name="numOfBedrooms" value="3"> 3
+                <input type="radio" name="numOfBedrooms" value="4+"> 4 or more
+                    <br>
+            <label>How many Bathrooms?</label>
+                <input type="radio" name="numOfBathrooms" value="1">1
+                <input type="radio" name="numOfBathrooms" value="2">2
+                <input type="radio" name="numOfBathrooms" value="3+">3 or more
+                    <br>
+            <button type="submit">Search Now</button>
+        </form>
+    </body>
+</html>
