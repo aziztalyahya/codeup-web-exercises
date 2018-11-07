@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Login Exercise</title>
+    </head>
+    <body>
+        <form method="GET" action="https://request-inspector.glitch.me">
+            <label for="username">Username: </label>
+            <input type="text" id="username" name="username" autofocus='autofocus' required>
+                <br>
+            <label for="email">Email: </label>
+            <input type="text" name="email" id="email" required>
+                <br>
+            <label for="password">Password:</label>
+            <input type="password" name="password" id="password" required>
+                <br>
+            <label for="stayLoggedIn">Keep me logged in for 2 weeks</label>
+            <input type="checkbox" name="stayLoggedIn" value="yes" checked>Yes
+            <input type="checkbox" name="stayLoggedIn" value="no"> No
+            <button type="submit">Login</button>
+        </form>
+
+    </body>
+</html>
