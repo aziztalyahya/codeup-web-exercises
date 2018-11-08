@@ -1,0 +1,81 @@
+h1{
+    text-align: center;
+    color: darkred;
+    text-decoration: underline;
+}
+body h2{
+    color: darkred;
+    text-decoration: underline;
+}
+body{
+    background-color: black;
+    background-image: url("img/verDynLogo.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: darkred;
+    font-family: 'Bitter', serif;
+}
+#bottomHeader{
+    text-align: left;
+    color: darkred;
+}
+/*li{*/
+    /*border: solid 1px black;*/
+    /*background-color: whitesmoke;*/
+    /*width: 100px;*/
+    /*list-style-image: image(url="img/rickmorty.jpg");*/
+/*}*/
+ul, ol {
+    list-style: none;
+}
+li {
+    position: relative;
+}
+li:before {
+    /*
+    The desired width gets defined in two places: The element width, and background size.
+    The height only gets defined once, in background size.
+    */
+    position: absolute;
+    display: block;
+    content: '\2022'; /* bullet point, for screen readers */
+    text-indent: -999999px; /* move the bullet point out of sight */
+    left: -.75em;
+    width: 1em; /* desired width of the image */
+    height: 1em; /* unrelated to image height; this is so it gets snipped */
+    background-repeat: no-repeat;
+    background-image: url("img/verDynLogo.png");
+    background-size: .5em .5em;
+    background-position: 0 .3em;
+}
+
+td{
+    font-size: 2em;
+    border: solid 1px black;
+    background-color: white;
+}
+td:hover{
+    background-color: black;
+}
+tr:hover{
+    background-color: black;
+}
+/* unvisited link */
+a:link {
+    color: #FF0000;
+}
+
+/* visited link */
+a:visited {
+    color: blue;
+}
+
+/* mouse over link */
+a:hover {
+    color: #FF00FF;
+}
+
+/* selected link */
+a:active {
+    color: green;
+}
