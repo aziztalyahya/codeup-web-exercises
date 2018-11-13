@@ -68,8 +68,6 @@ a {
 .profile-entry{
     margin: .5em;
 }
-
-
 .btn {
     border: 1px solid var(--main-link-color);
     color: var(--main-link-color);
@@ -102,10 +100,8 @@ a {
 .profile{
     height: 80px;
 }
-
 .timeline {
     width: calc(50% - 1.5em);
-
 }
 .who-to-follow{
     width: calc(25%- 1.5em);
@@ -117,8 +113,6 @@ a {
     border-bottom: 1px solid var(--separator-color);
     overflow: hidden;
     padding: .5em;
-
-
 }
 .media-image{
     max-width: 50px;

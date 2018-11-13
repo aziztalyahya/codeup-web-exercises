@@ -2,55 +2,47 @@
     box-sizing: border-box;
 }
 .row{
-    width: 80%;
-    margin-bottom: 30px;
-    height: 30px;
+    width: 100%;
 
 }
-.row:after {
-    content: "";
-    display: table;
-    clear: both;
-}
-.customRow {
-    width: 80%;
-    margin-top: 60px;
-    height: 30px;
-}
-.customCol {
-    float: left;
-    height: 30px;
+.container{
+    width: 95%;
+    margin: 0 auto;
+    max-width: 1200px;
 }
 
 .column{
     float: left;
-    height: 30px;
 }
 
-.column.oneHalf, .column.oneThird, .column.oneQuarter, .column.oneEighth{
-    padding-top: 10px;
-    padding-bottom: 30px;
-    border: 1px solid black;
-    background-color: #848487;
-}
-.customCol.oneHalf, .customCol.oneThird, .customCol.oneQuarter, .customCol.oneEighth{
-    padding-top: 10px;
-    padding-bottom: 30px;
+.column.oneHalf, .column.oneThird, .column.oneQuarter, .column.oneEighth, .column.twoThird{
     border: 1px solid black;
     background-color: #848487;
 }
 
-.column.oneHalf, .customCol.oneHalf{
+.column.oneHalf{
     width: 50%;
 
 }
 
-.column.oneThird, .customCol.oneThird{
+.column.oneThird{
     width: 33.33%;
 }
-.column.oneQuarter, .customCol.oneQuarter{
+.column.oneQuarter{
     width: 25%;
 }
-.column.oneEighth, .customCol.oneEighth{
+.column.oneEighth{
     width: 12.5%;
+}
+.column.twoThird{
+    width: 66.66%;
+}
+
+@media screen and (max-width: 768px) {
+    .column.oneHalf,
+    .column.oneQuarter,
+    .column.oneThird,
+    .column.twoThird{
+        width: 100%;
+    }
 }

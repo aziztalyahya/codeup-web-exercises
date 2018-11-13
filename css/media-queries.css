@@ -1,18 +1,19 @@
 @media screen and (min-width:0px) and (max-width: 400px) {
     *{
         font-family: 'Ubuntu', sans-serif;
+        width: 100%;
     }
     body {
-        background-color: white;
+        /*background-color: white;*/
         margin: .5% 1%;
     }
     .alert-info {
-        background-color:lightblue;
+        /*background-color:lightblue;*/
         list-style-type: none;
         text-align: center;
         padding: 10px;
-        width: 92%;
-        border: 1px solid lightgray;
+        /*width: 92%;*/
+        /*border: 1px solid lightgray;*/
     }
 
     .alert-info a{
@@ -25,10 +26,10 @@
     ul li{
         list-style-type: none;
         text-align: center;
-        background-color: darkgray;
-        border: 1px solid black;
+        /*background-color: darkgray;*/
+        /*border: 1px solid black;*/
         padding: 10px;
-        width: 92%;
+        /*width: 92%;*/
         margin-bottom: 5px;
     }
     .nav-links{
@@ -40,7 +41,7 @@
     }
     img{
         height: auto;
-        max-width: 100%;
+        width: 95%;
     }
 }
 /* Devices (desktops, 401px and up) */
@@ -54,18 +55,18 @@
     .hidden-on-desktop{
         display: none;
     }
-   nav{
-       float: right;
-   }
-   li{
-       float: left;
-       margin-left: 30px;
-       margin-top: 25px;
-       list-style: none;
-       font-size: .75em;
-       padding: 0;
-       background-color: white;
-   }
+    nav{
+        float: right;
+    }
+    li{
+        float: left;
+        margin-left: 30px;
+        margin-top: 25px;
+        list-style: none;
+        font-size: .75em;
+        padding: 0;
+        /*background-color: white;*/
+    }
     img{
         margin-top: 2%;
 
@@ -83,14 +84,14 @@
         float: left;
     }
     #main{
-        width:66%;
+        /*width:66%;*/
 
     }
     .main p{
-        width: 90%;
+        /*width: 90%;*/
     }
     .sub-section{
-        width: 34%;
+        /*width: 34%;*/
     }
     .header-img{
         clear: both;
