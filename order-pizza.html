@@ -19,12 +19,8 @@
         <input class="form-control mr-sm-2" type="search" placeholder="Zip Code" aria-label="Search">
         <button class="btn btn-sm btn-outline-secondary" type="button">Search Stores near you!</button>
     </form>
-    <ul>
-        <li class="ml-auto list-unstyled"><a><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRfZ2jxZfuv6jYI96UJUDQpmFO4rF8F0ptV41GTZ99B-W6zUDiF" width="30" height="30" class="d-inline-block align-top" alt="">
-        Signup
-        </a></li>
-    </ul>
-
+    <a class="signUp text-right"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRfZ2jxZfuv6jYI96UJUDQpmFO4rF8F0ptV41GTZ99B-W6zUDiF" width="30" height="30"  alt="">
+        Signup</a>
 </nav>
 
 <div class="jumbotron jumbotron-fluid">
@@ -124,33 +120,41 @@
     <div class="card-body">
         <div class="card" style="width: 100%;">
             <div class="card-header">
-                Cheese?
+                Choose Meats
             </div>
             <div class="form-group bg-primary mb-3 text-dark">
                 <label for="exampleFormControlSelect2"> Choose Meats</label>
-                <select class="form-control" id="exampleFormControlSelect2">
-                    <option>Light</option>
-                    <option>Regular</option>
-                    <option>Extra</option>
-                </select>
+                <div class="custom-control custom-checkbox bg-white">
+                    <input type="checkbox" class="custom-control-input" id="customCheck1">
+                    <label class="custom-control-label" for="customCheck1">Beef</label>
+                </div>
+                <div class="custom-control custom-checkbox bg-white">
+                    <input type="checkbox" class="custom-control-input" id="customCheck2">
+                    <label class="custom-control-label" for="customCheck2">Ham</label>
+                </div>
+                <div class="custom-control custom-checkbox bg-white">
+                    <input type="checkbox" class="custom-control-input" id="customCheck3">
+                    <label class="custom-control-label" for="customCheck3">Philly Steak</label>
+                </div>
             </div>
         </div>
+
         <div class="card-header">
-            Sauce?
+            Choose Non Meats
         </div>
             <div class="form-group bg-primary mb-3 text-dark">
-            <label for="exampleFormControlSelect3"> Sauce</label>
-                <div class="custom-control custom-checkbox">
-                    <input type="checkbox" class="custom-control-input" id="customCheck1">
-                    <label class="custom-control-label" for="customCheck1">Check this custom checkbox</label>
+            <label for="exampleFormControlSelect3"> Choose Non Meats</label>
+                <div class="custom-control custom-checkbox bg-white">
+                    <input type="checkbox" class="custom-control-input" id="customCheck4">
+                    <label class="custom-control-label" for="customCheck4">Green Peppers</label>
             </div>
-            <div class="custom-control custom-checkbox">
-                <input type="checkbox" class="custom-control-input" id="customCheck2">
-                <label class="custom-control-label" for="customCheck1">Check this custom checkbox</label>
+            <div class="custom-control custom-checkbox bg-white">
+                <input type="checkbox" class="custom-control-input" id="customCheck5">
+                <label class="custom-control-label" for="customCheck5">Mushrooms</label>
             </div>
-                <div class="custom-control custom-checkbox">
-                    <input type="checkbox" class="custom-control-input" id="customCheck3">
-                    <label class="custom-control-label" for="customCheck3">Check this custom checkbox</label>
+                <div class="custom-control custom-checkbox bg-white">
+                    <input type="checkbox" class="custom-control-input" id="customCheck6">
+                    <label class="custom-control-label" for="customCheck6">Onions</label>
                 </div>
         </div>
     </div>

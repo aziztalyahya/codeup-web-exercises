@@ -6,3 +6,7 @@
 .jumbotron{
     background-image: url("https://java.codeup.com/examples/bootstrap/pizza.png");
 }
+
+a.signUp{
+    float: right;
+}
