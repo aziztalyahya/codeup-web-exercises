@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="css/custom.css">
-    <title>Document</title>
+    <title>Pizza Place</title>
 </head>
 <body>
 
@@ -19,20 +19,24 @@
         <input class="form-control mr-sm-2" type="search" placeholder="Zip Code" aria-label="Search">
         <button class="btn btn-sm btn-outline-secondary" type="button">Search Stores near you!</button>
     </form>
-    </div>
-    <button type="button" class="btn btn-light">Sign Up</button>
+    <ul>
+        <li class="ml-auto list-unstyled"><a><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRfZ2jxZfuv6jYI96UJUDQpmFO4rF8F0ptV41GTZ99B-W6zUDiF" width="30" height="30" class="d-inline-block align-top" alt="">
+        Signup
+        </a></li>
+    </ul>
+
 </nav>
 
 <div class="jumbotron jumbotron-fluid">
-    <div class="container">
+    <div class="container-fluid">
         <h1 class="display-4">Welcome to Pizza World!</h1>
-        <p class="lead">This is a modified jumbotron that occupies the entire horizontal space of its parent.</p>
     </div>
 </div>
+<h1 class="display-5">Build your own Pizza!</h1>
 
 <ul class="nav nav-tabs">
     <li class="nav-item">
-        <a class="nav-link active" href="#">Size and Crust</a>
+        <a class="nav-link" href="#">Size and Crust</a>
     </li>
     <li class="nav-item">
         <a class="nav-link" href="#">Cheese and Sauce</a>
@@ -41,10 +45,121 @@
     <li class="nav-item">
         <a class="nav-link" href="#">Toppings</a>
     </li>
-    <li class="nav-item">
-        <a class="nav-link disabled" href="#">Disabled</a>
-    </li>
+
 </ul>
+<div class="card">
+    <div class="card text-white bg-primary mb-3" style="max-width: 100%;">
+        <div class="card-header">Choose size and crust</div>
+    </div>
+    <div class="card-body">
+        <div class="card" style="width: 100%;">
+            <div class="card-header">
+                Hand Tossed
+            </div>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">Garlic seasoned crust with a rich, buttery taste</li>
+                <li class="list-group-item"><input type="radio"> Small (10")</li>
+                <li class="list-group-item"><input type="radio"> Medium (12")</li>
+            </ul>
+        </div>
+        <div class="card-header">
+            Cripsy Thin
+        </div>
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item">Thin enough for optimum crispy to crunchy ratio</li>
+            <li class="list-group-item"><input type="radio"> Medium (12")</li>
+            <li class="list-group-item"><input type="radio"> Large (14")</li>
+        </ul>
+    </div>
+</div>
+<div class="card text-right" style="width: 100%;">
+    <div class="card-body">
+        <a href="#" class="btn btn-primary">Next Step</a>
+    </div>
+</div>
+
+<div class="card">
+    <div class="card text-white bg-primary mb-3" style="max-width: 100%;">
+        <div class="card-header">Choose cheese and sauce</div>
+    </div>
+    <div class="card-body">
+        <div class="card" style="width: 100%;">
+            <div class="card-header">
+                Cheese?
+            </div>
+            <div class="form-group bg-primary mb-3 text-dark">
+                <label for="exampleFormControlSelect1"> Cheese</label>
+                <select class="form-control" id="exampleFormControlSelect1">
+                    <option>Light</option>
+                    <option>Regular</option>
+                    <option>Extra</option>
+                </select>
+            </div>
+        </div>
+        <div class="card-header">
+            Sauce?
+        </div>
+        <div class="form-group bg-primary mb-3 text-dark">
+            <label for="exampleFormControlSelect2"> Sauce</label>
+            <select class="form-control" id="exampleFormControlSelect2">
+                <option>Robust Inspired Tomato Sauce</option>
+                <option>BBQ Sauce</option>
+                <option>Ranch Sauce</option>
+                <option>none</option>
+            </select>
+        </div>
+    </div>
+</div>
+<div class="card text-right" style="width: 100%;">
+    <div class="card-body">
+        <a href="#" class="btn btn-primary">Previous</a>
+        <a href="#" class="btn btn-primary">Next Step</a>
+    </div>
+</div>
+
+<div class="card">
+    <div class="card text-white bg-primary mb-3" style="max-width: 100%;">
+        <div class="card-header"> Choose Toppings</div>
+    </div>
+    <div class="card-body">
+        <div class="card" style="width: 100%;">
+            <div class="card-header">
+                Cheese?
+            </div>
+            <div class="form-group bg-primary mb-3 text-dark">
+                <label for="exampleFormControlSelect2"> Choose Meats</label>
+                <select class="form-control" id="exampleFormControlSelect2">
+                    <option>Light</option>
+                    <option>Regular</option>
+                    <option>Extra</option>
+                </select>
+            </div>
+        </div>
+        <div class="card-header">
+            Sauce?
+        </div>
+            <div class="form-group bg-primary mb-3 text-dark">
+            <label for="exampleFormControlSelect3"> Sauce</label>
+                <div class="custom-control custom-checkbox">
+                    <input type="checkbox" class="custom-control-input" id="customCheck1">
+                    <label class="custom-control-label" for="customCheck1">Check this custom checkbox</label>
+            </div>
+            <div class="custom-control custom-checkbox">
+                <input type="checkbox" class="custom-control-input" id="customCheck2">
+                <label class="custom-control-label" for="customCheck1">Check this custom checkbox</label>
+            </div>
+                <div class="custom-control custom-checkbox">
+                    <input type="checkbox" class="custom-control-input" id="customCheck3">
+                    <label class="custom-control-label" for="customCheck3">Check this custom checkbox</label>
+                </div>
+        </div>
+    </div>
+</div>
+<div class="card text-right" style="width: 100%;">
+    <div class="card-body">
+        <a href="#" class="btn btn-primary">Checkout</a>
+    </div>
+</div>
 
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 </body>
