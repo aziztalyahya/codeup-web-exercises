@@ -10,19 +10,20 @@
         <title>Pizza Place</title>
     </head>
     <body>
-
+<!--start nav bar-->
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <a class="navbar-brand" href="#">Pizza World</a>
-            <a class="nav-item nav-link active" href="#">Order Online <span class="sr-only">(current)</span></a>
-            <a class="nav-item nav-link" href="#">Menu</a>
+            <a class="nav-item nav-link active text-dark" href="#">Order Online <span class="sr-only">(current)</span></a>
+            <a class="nav-item nav-link text-dark" href="#">Menu</a>
             <form class="form-inline">
                 <input class="form-control mr-sm-2" type="search" placeholder="Zip Code" aria-label="Search">
                 <button class="btn btn-sm btn-outline-secondary" type="button">Search Stores near you!</button>
             </form>
-            <a class="signUp text-right"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRfZ2jxZfuv6jYI96UJUDQpmFO4rF8F0ptV41GTZ99B-W6zUDiF" width="30" height="30"  alt="">
+            <a class="nav-item nav-link signUp"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRfZ2jxZfuv6jYI96UJUDQpmFO4rF8F0ptV41GTZ99B-W6zUDiF" width="30" height="30"  alt="signup logo">
                 Signup</a>
         </nav>
-
+<!--nav bar end-->
+<!--jumbotron start-->
         <div class="jumbotron jumbotron-fluid">
             <div class="container-fluid">
                 <h1 class="display-4">Welcome to Pizza World!</h1>
@@ -53,19 +54,23 @@
                         Hand Tossed
                     </div>
                     <ul class="list-group list-group-flush">
-                        <li class="list-group-item">Garlic seasoned crust with a rich, buttery taste</li>
-                        <li class="list-group-item"><input type="radio"> Small (10")</li>
-                        <li class="list-group-item"><input type="radio"> Medium (12")</li>
+                        <li class="list-group-item bg-white">Garlic seasoned crust with a rich, buttery taste</li>
+                        <li class="list-group-item bg-primary text-white"><input type="radio"> Small (10")</li>
+                        <li class="list-group-item bg-primary text-white"><input type="radio"> Medium (12")</li>
                     </ul>
                 </div>
+            </div>
+            <div class="card-body">
+                <div class="card" style="width:100%;">
                 <div class="card-header">
                     Cripsy Thin
                 </div>
                 <ul class="list-group list-group-flush">
                     <li class="list-group-item">Thin enough for optimum crispy to crunchy ratio</li>
-                    <li class="list-group-item"><input type="radio"> Medium (12")</li>
-                    <li class="list-group-item"><input type="radio"> Large (14")</li>
+                    <li class="list-group-item bg-primary bg-primary"><input type="radio"> Medium (12")</li>
+                    <li class="list-group-item bg-primary "><input type="radio"> Large (14")</li>
                 </ul>
+                </div>
             </div>
         </div>
         <div class="card text-right" style="width: 100%;">
@@ -92,20 +97,26 @@
                         </select>
                     </div>
                 </div>
-                <div class="card-header">
-                    Sauce?
-                </div>
-                <div class="form-group bg-primary mb-3 text-dark">
-                    <label for="exampleFormControlSelect2"> Sauce</label>
-                    <select class="form-control" id="exampleFormControlSelect2">
-                        <option>Robust Inspired Tomato Sauce</option>
-                        <option>BBQ Sauce</option>
-                        <option>Ranch Sauce</option>
-                        <option>none</option>
-                    </select>
+            </div>
+                <div class="card-body">
+                    <div class="card">
+                        <div class="card-header" style="width: 100%;">
+                        Sauce?
+                    </div>
+                        <div class="form-group bg-primary mb-3 text-dark">
+                            <label for="exampleFormControlSelect2"> Sauce</label>
+                            <select class="form-control" id="exampleFormControlSelect2">
+                                <option>Robust Inspired Tomato Sauce</option>
+                                <option>BBQ Sauce</option>
+                                <option>Ranch Sauce</option>
+                                <option>none</option>
+                            </select>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
+
         <div class="card text-right" style="width: 100%;">
             <div class="card-body">
                 <a href="#" class="btn btn-primary">Previous</a>
@@ -138,27 +149,33 @@
                         </div>
                     </div>
                 </div>
-
-                <div class="card-header">
-                    Choose Non Meats
-                </div>
-                    <div class="form-group bg-primary mb-3 text-dark">
-                    <label for="exampleFormControlSelect3"> Choose Non Meats</label>
-                        <div class="custom-control custom-checkbox bg-white">
-                            <input type="checkbox" class="custom-control-input" id="customCheck4">
-                            <label class="custom-control-label" for="customCheck4">Green Peppers</label>
-                    </div>
-                    <div class="custom-control custom-checkbox bg-white">
-                        <input type="checkbox" class="custom-control-input" id="customCheck5">
-                        <label class="custom-control-label" for="customCheck5">Mushrooms</label>
-                    </div>
-                        <div class="custom-control custom-checkbox bg-white">
-                            <input type="checkbox" class="custom-control-input" id="customCheck6">
-                            <label class="custom-control-label" for="customCheck6">Onions</label>
+            </div>
+                <div class="card-body">
+                    <div class="card" style="width: 100%;">
+                        <div class="card-header">
+                            Choose Non Meats
                         </div>
+
+                        <div class="form-group bg-primary mb-3 text-dark">
+                            <label for="exampleFormControlSelect3"> Choose Non Meats</label>
+                            <div id="exampleFormControlSelect3" class="custom-control custom-checkbox bg-white">
+                                <input type="checkbox" class="custom-control-input" id="customCheck4">
+                                <label class="custom-control-label" for="customCheck4">Green Peppers</label>
+                            </div>
+                            <div class="custom-control custom-checkbox bg-white">
+                                <input type="checkbox" class="custom-control-input" id="customCheck5">
+                                <label class="custom-control-label" for="customCheck5">Mushrooms</label>
+                            </div>
+                            <div class="custom-control custom-checkbox bg-white">
+                                <input type="checkbox" class="custom-control-input" id="customCheck6">
+                                <label class="custom-control-label" for="customCheck6">Onions</label>
+                            </div>
+                        </div>
+
+                    </div>
                 </div>
             </div>
-        </div>
+
         <div class="card text-right" style="width: 100%;">
             <div class="card-body">
                 <a href="#" class="btn btn-primary">Checkout</a>
