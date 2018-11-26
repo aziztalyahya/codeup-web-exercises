@@ -16,62 +16,24 @@
  * Can you refactor your code to use functions?
  */
 
-var decision= confirm("Would you like to enter a number?");
-if (decision === true) {
-    var number = prompt("Please enter the number");
-        switch (number) {
-            case (typeof number === "string"):
-                break;
-            case (typeof number === NaN):
-                break;
-            default:
-                if ((number % 2) === 0) {
-                    alert("This is even")
-                } else {
-                    alert("This is odd")
-                }
 
-                alert("This number plus 100 is " + (parseFloat(number) + 100))
-
-                if (number >= 0) {
-                    alert("this number is positive")
-                } else {
-                    alert("this number is negative")
-                }
-
-
-        }
+var enterNumber = prompt("Would you like to enter a number?");
+if (typeof(enterNumber) === false){
+    console.log("okay then");
 } else {
-    console.log("Error");
+    var number = prompt("please enter a number");
+    if (parseFloat(number) % 2 === 0) {
+        console.log("The number is even")
+    } else {console.log("The number is odd")}
+
+    console.log(number + " plus 100 is " + (parseFloat(number) + 100));
+    if (number <0){
+        console.log("The number is negative");
+    } else {
+        console.log("The number is even");
+    }
 }
 
-
-
-
-
-
-//         if (typeof decision === "string"){
-//             console.log("")
-//         }
-//     else if (decision === true) {
-//         var number = prompt("Please enter the number");
-//     } else {
-//         console.log("Error");
-//     }
-//
-//     if ((number % 2) === 0){
-//         alert("This is even")
-//     } else {
-//         alert("This is odd")
-//     }
-//
-//     alert("This number plus 100 is " + (parseFloat(number) + 100))
-//
-// if (number >= 0) {
-//     alert("this number is positive")
-// } else {
-//     alert("this number is negative")
-//}
 
 
 
