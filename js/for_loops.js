@@ -20,7 +20,15 @@ for (var x=0; x <10; x++){
 for(var i = 1; i < 10; i++) {
     console.log(String(i).repeat(i))
 }
-
+// function numberTree() {
+//  for (i=1; i<=10; i++){
+//      var it = "";
+//      for (var j=0; j<i; j++){
+//          it = it + i;
+//      }
+//      console.log(it)
+//  }
+// }
 
 
 
