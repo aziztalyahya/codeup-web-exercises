@@ -1,3 +1,4 @@
+"use strict";
 function showMultiplicationTable(input){
     for (var x=1; x<=10; x++) {
         console.log(input + " x "+ x +" = " + (input*x));
@@ -16,8 +17,9 @@ for (var x=0; x <10; x++){
 }
 
 
-for (var num=1; num<10; num++){
-} console.log(number);
+for(var i = 1; i < 10; i++) {
+    console.log(String(i).repeat(i))
+}
 
 
 
@@ -27,7 +29,7 @@ for (var num=1; num<10; num++){
 
 var startingNumber = 100;
 
-for(x=20; x > 0; x--){
+for(var x=20; x > 0; x--){
     console.log(startingNumber);
     startingNumber = startingNumber -5;
 }
