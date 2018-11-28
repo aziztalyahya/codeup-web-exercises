@@ -24,12 +24,11 @@ for(var i = 1; i < 10; i++) {
 
 
 
-
-
-
 var startingNumber = 100;
 
 for(var x=20; x > 0; x--){
     console.log(startingNumber);
     startingNumber = startingNumber -5;
 }
+
+
