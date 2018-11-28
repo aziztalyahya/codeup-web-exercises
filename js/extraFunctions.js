@@ -32,3 +32,7 @@ function addFive(input){
     input +=5;
     return input;
 }
+
+function isMultiplOfFive(input){
+    return (input %= 5) === 0;
+}
