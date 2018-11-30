@@ -101,7 +101,7 @@
         var result = 0;
     numbers.forEach(function (number) {
         result = result + number;
-    })
+    });
      return result;
     };
 
@@ -113,6 +113,3 @@
         });
         return product;
     }
-
-
-
