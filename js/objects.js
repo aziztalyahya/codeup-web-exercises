@@ -147,12 +147,19 @@
      *      ---
      *      ...
      */
-            for (var i=0; i< books.length; i++){
-                console.log("Book # " + Number(i + 1));
-                console.log("Title: " + books[i].title);
-                console.log("Author: " + books[i].author.firstName + books[i].author.lastName);
-                console.log("---");
-            }
+            // for (var i=0; i< books.length; i++){
+            //     console.log("Book # " + Number(i + 1));
+            //     console.log("Title: " + books[i].title);
+            //     console.log("Author: " + books[i].author.firstName + books[i].author.lastName);
+            //     console.log("---");
+            // }
+// created iteration with a forEach loop as well
+    books.forEach(function(book, index){
+            console.log("Book # " + parseFloat(index + 1));
+            console.log("Title: " + books[index].title);
+            console.log("Author: " + books[index].author.firstName + books[index].author.lastName);
+            console.log("---");
+    });
 
     /**
      * Bonus:
