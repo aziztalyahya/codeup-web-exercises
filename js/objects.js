@@ -1,4 +1,4 @@
-(function() {
+
     "use strict";
 
     /**
@@ -83,35 +83,35 @@
             {
                 title: "Frankenstein",
                 author: {
-                    firstName: "Mary ",
+                    firstName: "Mary",
                     lastName: "Shelly"
                 }
             },
             {
                 title: "The Great Gatsby",
                 author: {
-                    firstName: "F. Scott ",
+                    firstName: "F. Scott",
                     lastName: "Fitzgerald"
                 }
             },
             {
                 title: "Of Mice and Men",
                 author: {
-                    firstName:"John ",
+                    firstName:"John",
                     lastName:"Steinbeck"
                 }
             },
             {
                 title: "Romeo and Juliet",
                 author: {
-                    firstName: "William ",
+                    firstName: "William",
                     lastName: "Shakespeare"
                 }
             },
             {
                 title: "Harry Potter",
                 author: {
-                    firstName: "J.K. ",
+                    firstName: "J.K.",
                     lastName: "Rowling"
                 }
             }
@@ -157,7 +157,7 @@
     books.forEach(function(book, index){
             console.log("Book # " + parseFloat(index + 1));
             console.log("Title: " + books[index].title);
-            console.log("Author: " + books[index].author.firstName + books[index].author.lastName);
+            console.log("Author: " + books[index].author.firstName + " " + books[index].author.lastName);
             console.log("---");
     });
 
@@ -172,6 +172,44 @@
      *   `showBookInfo` function.
      */
 
+    function createBook() {
+        var title = prompt("What is the title of the book?");
+        var author = [];
+        author[0] = prompt("What is the authors first name?");
+        author[1] = prompt("What is the author's last name?");
+
+        do {
+            var i = books.length;
+            books[i] = {
+                title: title,
+                author:{
+                    firstName: author[0],
+                    lastName: author[1]
+                }
+
+            }
+
+        } while (i < i);
+    }
+    createBook();
+    console.log(books);
+
+    
+
+function showBookInfo() {
+    var bookName = prompt("Please enter the title of the book you're searching for");
+
+    for (var i=0; i<books.length; i++) {
+        if (bookName === books[i].title) {
+            console.log("The book you chose was book #" + (i +1) + " which is " + books[i].title + " and the author is "
+            + books[i].author.firstName + " " + books[i].author.lastName);
+        }
+    }
+}
+
+showBookInfo();
+
+
     // function createBook(title, author) {
     //     for(i=0; i<books.length; i++)
     //     if (title === books[i].title && author === books[i].author.firstName + books[i].author.lastName){
@@ -180,4 +218,4 @@
     //
     // }
 
-})();
+
