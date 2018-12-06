@@ -54,6 +54,10 @@
                 defaultZoom =15;
                 initMap();
             });
+            var infoWindow = new google.maps.InfoWindow({
+                content: "Bread so good, makes you wanna slap your mama!!"
+            });
+            infoWindow.open(map, marker);
         }
 
     </script>
