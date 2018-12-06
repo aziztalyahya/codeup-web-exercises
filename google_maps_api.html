@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Google Maps API</title>
+    <meta name="viewport" content="initial-scale=1.0">
+    <meta charset="utf-8">
+    <style type="text/css">
+        /* Always set the map height explicitly to define the size of the div
+         * element that contains the map. */
+        #map {
+            height: 50%;
+        }
+        /* Optional: Makes the sample page fill the window. */
+        html, body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+    </head>
+
+    <body>
+    <div id="map"></div>
+    <button id="zoom5">Zoom at 5</button>
+    <button id="zoom10">Zoom at 10</button>
+    <button id="zoom15">Zoom at 15</button>
+    <script>
+        var map;
+        var defaultZoom = 20;
+        function initMap() {
+            map = new google.maps.Map(document.getElementById('map'), {
+                center: {lat: 29.426586, lng: -98.489568},
+                zoom: defaultZoom
+            });
+
+            var marker = new google.maps.Marker({
+                position: map.center,
+                map: map
+            });
+            // created buttons to adjust how far you want to zoom
+            var zoomAt5 = document.querySelector("#zoom5");
+            zoomAt5.addEventListener("click", function () {
+                defaultZoom =5;
+                initMap();
+            });
+            var zoomAt10 = document.querySelector("#zoom10");
+            zoomAt10.addEventListener("click", function () {
+                defaultZoom = 10;
+                initMap();
+            });
+            var zoomAt15 = document.querySelector("#zoom15");
+            zoomAt15.addEventListener("click", function () {
+                defaultZoom =15;
+                initMap();
+            });
+        }
+
+    </script>
+
+
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyADndetZbm_WGmf_pO1Lhwystjxg1JX6qU
+    &callback=initMap" type="text/javascript"></script>
+    </body>
+</html>
