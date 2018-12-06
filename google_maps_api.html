@@ -25,18 +25,33 @@
     <button id="zoom5">Zoom at 5</button>
     <button id="zoom10">Zoom at 10</button>
     <button id="zoom15">Zoom at 15</button>
+    <button id="zoomDefault">Default Zoom</button>
+
+    <!--js script starts here-->
     <script>
         var map;
-        var defaultZoom = 20;
+        var defaultZoom = 18;
+        var favoritePlaces = [{lat: 29.426586, lng: -98.489568},
+            {lat:29.426571, lng:-98.491944},
+            {lat:29.426354, lng:-98.491216}
+        ];
         function initMap() {
             map = new google.maps.Map(document.getElementById('map'), {
                 center: {lat: 29.426586, lng: -98.489568},
-                zoom: defaultZoom
-            });
+                zoom: defaultZoom,
 
-            var marker = new google.maps.Marker({
-                position: map.center,
-                map: map
+            });
+            var marker = [];
+            var counter = 0;
+            favoritePlaces.forEach (function(element){
+                 marker[counter] = new google.maps.Marker({
+                    position: element,
+                    map: map,
+                    animation: google.maps.Animation.DROP
+
+                } );
+                counter++;
+                console.log(marker);
             });
             // created buttons to adjust how far you want to zoom
             var zoomAt5 = document.querySelector("#zoom5");
@@ -54,10 +69,29 @@
                 defaultZoom =15;
                 initMap();
             });
-            var infoWindow = new google.maps.InfoWindow({
-                content: "Bread so good, makes you wanna slap your mama!!"
+            var zoomAtDefault = document.querySelector("#zoomDefault");
+            zoomAtDefault.addEventListener("click", function () {
+                defaultZoom =18;
+                initMap();
             });
-            infoWindow.open(map, marker);
+            marker[0].addListener("click", function () {
+                var infoWindow = new google.maps.InfoWindow({
+                    content: "Bread so good, makes you wanna slap your mama!!"
+                });
+                infoWindow.open(map, marker[0]);
+            });
+            marker[1].addListener("click", function () {
+                var infoWindow = new google.maps.InfoWindow({
+                    content: "Beer and Tacos(:"
+                });
+                infoWindow.open(map, marker[1]);
+            });
+            marker[2].addListener("click", function () {
+                var infoWindow = new google.maps.InfoWindow({
+                    content: "Frappuccino and chill!!"
+                });
+                infoWindow.open(map, marker[2]);
+            });
         }
 
     </script>
