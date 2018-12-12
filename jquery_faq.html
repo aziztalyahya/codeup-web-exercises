@@ -1,11 +1,78 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Jquery FAQ</title>
-</head>
-<body>
+    <head>
+        <meta charset="UTF-8">
+        <title>Jquery FAQ</title>
+    </head>
+    <body>
+    <h1>10 FAQ's about National Parks</h1>
+        <dl>
+            <dt><h3>Who is the director of the National Park Service?</h3></dt>
+                <dd>Dan Smith is the deputy director exercising the authority
+                    of director for the National Park Service.</dd>
+            <dt><h3>What government agency oversees the National Park Service?</h3></dt>
+                <dd>The National Park Service is a bureau of the Department of the
+                    Interior. Directly overseeing its operation is the department's
+                    Assistant Secretary for Fish, Wildlife and Parks.</dd>
+            <dt><h3>How many employees are in the National Park Service?</h3></dt>
+                <dd>Permanent, temporary, and seasonal employees: More than 20,000</dd>
+            <dt><h3>How old is the National Park System?</h3></dt>
+                <dd>The National Park Service was created by an act signed by President
+                    Woodrow Wilson on August 25, 1916. Yellowstone National Park was
+                    established by an act signed by President Ulysses S. Grant on March 1, 1872,
+                    as the nation's first national park. View the National Park System</dd>
 
-<script src="js/jquery-2.2.4.min.js"></script>
-</body>
+        </dl>
+    <h3>Yosemite</h3>
+    <ul>
+        <li>in California</li>
+        <li>el capitan is here</li>
+        <li>giant, ancient sequoia trees</li>
+    </ul>
+    <h3>Yellowstone</h3>
+    <ul>
+        <li>geysers galore</li>
+        <li>old faithful</li>
+        <li>nearly 3,500-sq.-mile wilderness recreation area atop a volcanic hot spot</li>
+    </ul>
+    <h3>Grand Canyon</h3>
+    <ul>
+        <li>Red rocks</li>
+        <li>big drop</li>
+        <li>near las vegas</li>
+    </ul>
+    <button id="changeBack" onclick="onClick()">Show Answers</button>
+    <button id="highlight">highlight important</button>
+
+
+    <script src="js/jquery-2.2.4.min.js"></script>
+    <script>
+        var clicks = 0;
+        function onClick() {
+            clicks += 1;
+        };
+
+        $(document).ready(function () {
+        $("dd").addClass("invisible");
+        $(".invisible").css("display", "none");
+        $("#changeBack").click(function () {
+            console.log(clicks);
+            $("dd").toggle();
+            // if(clicks %2 === 0){
+            //     $("dd").css("display", "none");
+            //     $("#changeBack").text("Show Answers");
+            // }
+            // if (clicks %2 !== 0) {
+            //     $("dd").css("display", "");
+            //     $("#changeBack").text("Don't Show");
+            // }
+
+        });
+            $("#highlight").click(function () {
+                $("ul").children().css("background-color", "yellow");
+            });
+
+        });
+    </script>
+    </body>
 </html>
