@@ -23,19 +23,19 @@
                     as the nation's first national park. View the National Park System</dd>
 
         </dl>
-    <h3>Yosemite</h3>
+    <h3 class="title">Yosemite</h3>
     <ul>
         <li>in California</li>
         <li>el capitan is here</li>
         <li>giant, ancient sequoia trees</li>
     </ul>
-    <h3>Yellowstone</h3>
+    <h3 class="title">Yellowstone</h3>
     <ul>
         <li>geysers galore</li>
         <li>old faithful</li>
         <li>nearly 3,500-sq.-mile wilderness recreation area atop a volcanic hot spot</li>
     </ul>
-    <h3>Grand Canyon</h3>
+    <h3 class="title">Grand Canyon</h3>
     <ul>
         <li>Red rocks</li>
         <li>big drop</li>
@@ -68,10 +68,30 @@
             // }
 
         });
+            // $("#highlight").click(function () {
+            //     $("ul").children().last().css("background-color", "yellow");
+            //
+            // });
+            // $("h3").click(function () {
+            //     $("h3").next().children().css("font-weight", "bold");
+            // });
+            // $("li").click(function () {
+            //     $("li").parent().prev().css("color", "blue");
+            // });
             $("#highlight").click(function () {
-                $("ul").children().css("background-color", "yellow");
+                $("ul").each(function () {
+                    $(this).children().last().css("background-color", "yellow")
+                });
+
             });
 
+            $("h3").click(function () {
+                $(this).next().css("font-weight", "bold");
+            });
+
+            $("ul").click(function () {
+                $(this).children().first().css("color", "blue");
+            });
         });
     </script>
     </body>
