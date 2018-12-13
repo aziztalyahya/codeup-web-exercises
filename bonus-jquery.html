@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <title>Bonus</title>
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="row justify-content-center">
+            <div  class="col-4 border border-dark" ><img id="img1" src="img/rickmorty.jpg"></div>
+            <div class="col-4 border border-dark" ><img id="img2" src="img/codeupLogo.png"></div>
+            <div class="col-4 border border-dark" ><img id="img3" src="img/placeholderpic.png"></div>
+        </div>
+        <div class="row">
+            <div class="col-4 justify-content-center ">
+                <button id="swap1">swap</button>
+            </div>
+            <div class="col-4 justify-content-center ">
+                <button id="swap2">swap</button>
+            </div>
+            <div class="col-4 justify-content-center ">
+                <button id="swap3">swap</button>
+            </div>
+        </div>
+    </div>
+
+<script src="js/jquery-2.2.4.min.js"></script>
+<script>
+    $(document).ready(function () {
+       $("#swap1").click(function () {
+            $("#img1").attr("src", "img/codeupLogo.png");
+            $("#img2").attr("src", "img/rickmorty.jpg");
+       });
+        $("#swap2").click(function () {
+            $("#img2").attr("src", "img/placeholderpic.png");
+            $("#img3").attr("src", "img/rickmorty.jpg");
+        });
+        $("#swap3").click(function () {
+            $("#img3").attr("src", "img/placeholderpic.png");
+            $("#img1").attr("src", "img/rickmorty.jpg");
+            $("#img2").attr("src", "img/codeupLogo.png");
+        });
+    })
+</script>
+</body>
+</html>

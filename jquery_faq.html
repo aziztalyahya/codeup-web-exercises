@@ -5,6 +5,8 @@
         <title>Jquery FAQ</title>
     </head>
     <body>
+    <div><h1>Would you like to sign up for our newsletter?<span>X</span></h1></div>
+    <h2>Register <a id="subscribe" href="#">Here</a></h2>
     <h1>10 FAQ's about National Parks</h1>
         <dl>
             <dt><h3>Who is the director of the National Park Service?</h3></dt>
@@ -53,21 +55,21 @@
         };
 
         $(document).ready(function () {
-        $("dd").addClass("invisible");
-        $(".invisible").css("display", "none");
-        $("#changeBack").click(function () {
-            console.log(clicks);
-            $("dd").toggle();
-            // if(clicks %2 === 0){
-            //     $("dd").css("display", "none");
-            //     $("#changeBack").text("Show Answers");
-            // }
-            // if (clicks %2 !== 0) {
-            //     $("dd").css("display", "");
-            //     $("#changeBack").text("Don't Show");
-            // }
+            $("dd").addClass("invisible");
+            $(".invisible").css("display", "none");
+            $("#changeBack").click(function () {
+                console.log(clicks);
+                $("dd").toggle();
+                // if(clicks %2 === 0){
+                //     $("dd").css("display", "none");
+                //     $("#changeBack").text("Show Answers");
+                // }
+                // if (clicks %2 !== 0) {
+                //     $("dd").css("display", "");
+                //     $("#changeBack").text("Don't Show");
+                // }
 
-        });
+            });
             // $("#highlight").click(function () {
             //     $("ul").children().last().css("background-color", "yellow");
             //
@@ -88,10 +90,27 @@
             $("h3").click(function () {
                 $(this).next().css("font-weight", "bold");
             });
-
+            $("ul").hide();
             $("ul").click(function () {
                 $(this).children().first().css("color", "blue");
             });
+
+            $("span").click(function () {
+                $(this).parent().hide();
+            });
+
+            $("h3").click(function () {
+                $(this).next().slideToggle();
+            });
+
+            $("dt").click(function () {
+                $(this).next().slideToggle();
+            });
+            $("#subscribe").fadeOut();
+
+            setTimeout(function () {
+                $("#subscribe").fadeIn(1000);
+            }, 3000);
         });
     </script>
     </body>
