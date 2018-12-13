@@ -18,6 +18,10 @@
     </thead>
     <tbody id="insertProducts"></tbody>
 </table>
+<div id="lukesName"></div>
+<div id="homeWorld"></div>
+<div></div>
+<div></div>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 
@@ -35,8 +39,16 @@
         $("#insertProducts").append("<tr><td>" + data[i].title + "</td><td>"
             + data[i].quantity  + "</td><td>" + data[i].price + "</td><td>"
             + data[i].categories + "</td></tr>");
-
         }
+
+    $.ajax("https://swapi.co/api/people/1/").done(function (data) {
+        $("#lukesName").text(data.name);
+        $("#homeWorld").text(data.homeworld);
+        $.ajax("https://swapi.co/api/planets/1/").done(function (data) {
+            $("#homeWorld").text(data.name);
+        });
+    });
+
     });
 })();
 </script>
