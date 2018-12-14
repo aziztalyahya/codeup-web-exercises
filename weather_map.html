@@ -7,27 +7,28 @@
     </head>
     <body>
         <h1 id="mainHeader">Weather Application</h1>
-        <p id="city"></p>
-        <br>
         <h4>Please enter the latitude</h4><input type="text" id="latitude" name="latitude">
         <h4>Please enter the longitude</h4><input type="text" id="longitude" name="longitude">
         <button type="submit" id="submit">submit</button>
         <br>
-        <tr>
-            <th>Day</th>
-            <th>Description</th>
-            <th>High/Low</th>
-            <th>Precipitation</th>
-        </tr>
+        <p id="city"></p>
         <br>
-        <div id="weatherInfo"></div>
-        <!--<tr>-->
-            <!--<td id="day1Day"></td>-->
-            <!--<td>placeholder</td>-->
-            <!--<td id="day1HighLow"></td>-->
-            <!--<td id="day1Precip"> </td>-->
-            <!--<td id="day1Description"></td>-->
-        <!--</tr>-->
+        <table>
+            <tr>
+                <th>Day</th>
+                <th>Description</th>
+                <th>Image</th>
+                <th>High/Low</th>
+                <th>Humidity</th>
+            </tr>
+            <tr>
+                <td id="day1Day"></td>
+                <td id="day1Conditions"></td>
+                <td><img id="imageSource"></td>
+                <td id="day1HighLow"></td>
+                <td id="day1Humidity"></td>
+            </tr>
+        </table>
 
         <br>
         <button>1 Day</button>
@@ -50,11 +51,13 @@
                 lon:   longitude,
                 units: "imperial"
             }).done(function(weatherInfo) {
-                $("#city").text(weatherInfo.name);
-                console.log(weatherInfo.weather[0].main);
-                $("#weatherInfo").append("<tr><td>") + weatherInfo.weather[0].main + "</td><td>"
-                    + "low:" + weatherInfo.main.temp_min + "high:" + weatherInfo.main.temp_max + "</td></tr>";
-                console.log(weatherInfo.weather[0].main);
+                var iconURL = "http://openweathermap.org/img/w/" + weatherInfo.weather[0].icon + ".png";
+                $("#city").text("City: " + weatherInfo.name);
+                $("#day1Day").text("Today");
+                $("#day1Conditions").text(weatherInfo.weather[0].main + ": " + weatherInfo.weather[0].description);
+                $("#imageSource").attr("src", iconURL);
+                $("#day1HighLow").text( + weatherInfo.main.temp_max + " /" +weatherInfo.main.temp_min);
+                $("#day1Humidity").text(weatherInfo.main.humidity + "%");
                 });
             });
             // $("#send-stuff").click(function(){
