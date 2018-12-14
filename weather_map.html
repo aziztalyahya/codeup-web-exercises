@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <title>Weather Map</title>
+    </head>
+    <body>
+        <h1 id="mainHeader">Weather Application</h1>
+        <p id="city"></p>
+        <br>
+        <h4>Please enter the latitude</h4><input type="text" id="latitude" name="latitude">
+        <h4>Please enter the longitude</h4><input type="text" id="longitude" name="longitude">
+        <button type="submit" id="submit">submit</button>
+        <br>
+        <tr>
+            <th>Day</th>
+            <th>Description</th>
+            <th>High/Low</th>
+            <th>Precipitation</th>
+        </tr>
+        <br>
+        <div id="weatherInfo"></div>
+        <!--<tr>-->
+            <!--<td id="day1Day"></td>-->
+            <!--<td>placeholder</td>-->
+            <!--<td id="day1HighLow"></td>-->
+            <!--<td id="day1Precip"> </td>-->
+            <!--<td id="day1Description"></td>-->
+        <!--</tr>-->
+
+        <br>
+        <button>1 Day</button>
+        <button>3 Day</button>
+        <button>5 Day</button>
+
+    <script src="js/jquery-2.2.4.min.js"></script>
+    <script>
+        "use strict";
+
+        $(document).ready(function () {
+            $("#submit").click(function () {
+                var latitude =  $("#latitude").val();
+                var longitude =  $("#longitude").val();
+                console.log(latitude + ", " + longitude);
+
+                $.get("http://api.openweathermap.org/data/2.5/weather", {
+                APPID: "26af6b0a60a8c3a60f802098b1484f4f",
+                lat:    latitude,
+                lon:   longitude,
+                units: "imperial"
+            }).done(function(weatherInfo) {
+                $("#city").text(weatherInfo.name);
+                console.log(weatherInfo.weather[0].main);
+                $("#weatherInfo").append("<tr><td>") + weatherInfo.weather[0].main + "</td><td>"
+                    + "low:" + weatherInfo.main.temp_min + "high:" + weatherInfo.main.temp_max + "</td></tr>";
+                console.log(weatherInfo.weather[0].main);
+                });
+            });
+            // $("#send-stuff").click(function(){
+            //     var greeting =
+            // });
+        });
+    </script>
+    </body>
+</html>
