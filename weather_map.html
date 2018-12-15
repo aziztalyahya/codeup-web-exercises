@@ -42,12 +42,26 @@
                 <td id="day3HighLow"></td>
                 <td id="day3Humidity"></td>
             </tr>
+            <tr>
+                <td id="day4Day"></td>
+                <td id="day4Conditions"></td>
+                <td><img id="imageSource4"></td>
+                <td id="day4HighLow"></td>
+                <td id="day4Humidity"></td>
+            </tr>
+            <tr>
+                <td id="day5Day"></td>
+                <td id="day5Conditions"></td>
+                <td><img id="imageSource5"></td>
+                <td id="day5HighLow"></td>
+                <td id="day5Humidity"></td>
+            </tr>
         </table>
 
         <br>
         <button id="showOneDay">1 Day</button>
         <button id="showThreeDay">3 Day</button>
-        <button>5 Day</button>
+        <button id="showFiveDay">5 Day</button>
 
     <script src="js/jquery-2.2.4.min.js"></script>
     <script>
@@ -77,10 +91,8 @@
                 $("#day3Humidity").empty();
             };
 
-
             function dayTwoWeather(weatherInfo) {
                 var iconURL2 = "http://openweathermap.org/img/w/" + weatherInfo.list[8].weather[0].icon + ".png";
-                $("#city").text("City: " + weatherInfo.city.name);
                 $(".day2Day").text("Tomorrow");
                 $("#day2Conditions").text(weatherInfo.list[8].weather[0].main + ": " + weatherInfo.list[8].weather[0].description);
                 $("#imageSource2").attr("src", iconURL2);
@@ -90,12 +102,39 @@
 
             function dayThreeWeather(weatherInfo) {
                 var iconURL3 = "http://openweathermap.org/img/w/" + weatherInfo.list[16].weather[0].icon + ".png";
-                $("#city").text("City: " + weatherInfo.city.name);
-                $("#day3Day").text("The Day after");
+                $("#day3Day").text("Day 3");
                 $("#day3Conditions").text(weatherInfo.list[16].weather[0].main + ": " + weatherInfo.list[16].weather[0].description);
                 $("#imageSource3").attr("src", iconURL3);
                 $("#day3HighLow").text(+weatherInfo.list[16].main.temp_max + " /" + weatherInfo.list[16].main.temp_min);
                 $("#day3Humidity").text(weatherInfo.list[16].main.humidity + "%");
+            };
+            function dayFourWeather(weatherInfo) {
+                var iconURL4 = "http://openweathermap.org/img/w/" + weatherInfo.list[24].weather[0].icon + ".png";
+                $("#day4Day").text("Day 4");
+                $("#day4Conditions").text(weatherInfo.list[24].weather[0].main + ": " + weatherInfo.list[24].weather[0].description);
+                $("#imageSource4").attr("src", iconURL4);
+                $("#day4HighLow").text(+weatherInfo.list[24].main.temp_max + " /" + weatherInfo.list[24].main.temp_min);
+                $("#day4Humidity").text(weatherInfo.list[24].main.humidity + "%");
+            };
+            function dayFiveWeather(weatherInfo) {
+                var iconURL5 = "http://openweathermap.org/img/w/" + weatherInfo.list[32].weather[0].icon + ".png";
+                $("#day5Day").text("Day 5");
+                $("#day5Conditions").text(weatherInfo.list[32].weather[0].main + ": " + weatherInfo.list[32].weather[0].description);
+                $("#imageSource5").attr("src", iconURL5);
+                $("#day5HighLow").text(+weatherInfo.list[32].main.temp_max + " /" + weatherInfo.list[32].main.temp_min);
+                $("#day5Humidity").text(weatherInfo.list[32].main.humidity + "%");
+            };
+            function removeDayFourAndFive(){
+                $("#day4Day").empty();
+                $("#day4Conditions").empty();
+                $("#imageSource4").hide();
+                $("#day4HighLow").empty();
+                $("#day4Humidity").empty();
+                $("#day5Day").empty();
+                $("#day5Conditions").empty();
+                $("#imageSource5").hide();
+                $("#day5HighLow").empty();
+                $("#day5Humidity").empty();
             };
             //initial ajax request getting just the information a specified latitude and longitude
             // once the request from that server was accepted it will display current weather in SA
@@ -144,6 +183,7 @@
                     }).done(function (weatherInfo) {
                         dayOneWeather(weatherInfo);
                         removeDayTwoAndThree();
+                        removeDayFourAndFive();
                     });
             });
 
@@ -160,9 +200,33 @@
                 }).done(function (weatherInfo) {
                     $("#imageSource2").show();
                     $("#imageSource3").show();
+                    removeDayFourAndFive();
                     dayOneWeather(weatherInfo);
                     dayTwoWeather(weatherInfo);
                     dayThreeWeather(weatherInfo);
+                });
+            });
+
+            $("#showFiveDay").click(function () {
+                var latitude = $("#latitude").val();
+                var longitude = $("#longitude").val();
+                console.log(latitude + ", " + longitude);
+
+                $.get("http://api.openweathermap.org/data/2.5/forecast?lat=" + latitude + "&lon=" + longitude, {
+                    APPID: "26af6b0a60a8c3a60f802098b1484f4f",
+                    // lat:    latitude,
+                    // lon:   longitude,
+                    units: "imperial"
+                }).done(function (weatherInfo) {
+                    $("#imageSource2").show();
+                    $("#imageSource3").show();
+                    $("#imageSource4").show();
+                    $("#imageSource5").show();
+                    dayOneWeather(weatherInfo);
+                    dayTwoWeather(weatherInfo);
+                    dayThreeWeather(weatherInfo);
+                    dayFourWeather(weatherInfo);
+                    dayFiveWeather(weatherInfo);
                 });
             });
         });
