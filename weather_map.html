@@ -24,15 +24,29 @@
             <tr>
                 <td id="day1Day"></td>
                 <td id="day1Conditions"></td>
-                <td><img id="imageSource"></td>
+                <td><img id="imageSource1"></td>
                 <td id="day1HighLow"></td>
                 <td id="day1Humidity"></td>
+            </tr>
+            <tr>
+                <td class="day2Day" id="day2Day"></td>
+                <td id="day2Conditions"></td>
+                <td><img id="imageSource2"></td>
+                <td id="day2HighLow"></td>
+                <td id="day2Humidity"></td>
+            </tr>
+            <tr>
+                <td id="day3Day"></td>
+                <td id="day3Conditions"></td>
+                <td><img id="imageSource3"></td>
+                <td id="day3HighLow"></td>
+                <td id="day3Humidity"></td>
             </tr>
         </table>
 
         <br>
-        <button>1 Day</button>
-        <button>3 Day</button>
+        <button id="showOneDay">1 Day</button>
+        <button id="showThreeDay">3 Day</button>
         <button>5 Day</button>
 
     <script src="js/jquery-2.2.4.min.js"></script>
@@ -40,29 +54,117 @@
         "use strict";
 
         $(document).ready(function () {
+
+            function dayOneWeather(weatherInfo) {
+                var iconURL1 = "http://openweathermap.org/img/w/" + weatherInfo.list[0].weather[0].icon + ".png";
+                $("#city").text("City: " + weatherInfo.city.name);
+                $("#day1Day").text("Today");
+                $("#day1Conditions").text(weatherInfo.list[0].weather[0].main + ": " + weatherInfo.list[0].weather[0].description);
+                $("#imageSource1").attr("src", iconURL1);
+                $("#day1HighLow").text(+weatherInfo.list[0].main.temp_max + " /" + weatherInfo.list[0].main.temp_min);
+                $("#day1Humidity").text(weatherInfo.list[0].main.humidity + "%");
+            };
+            function removeDayTwoAndThree(){
+                $("#day2Day").empty();
+                $("#day2Conditions").empty();
+                $("#imageSource2").hide();
+                $("#day2HighLow").empty();
+                $("#day2Humidity").empty();
+                $("#day3Day").empty();
+                $("#day3Conditions").empty();
+                $("#imageSource3").hide();
+                $("#day3HighLow").empty();
+                $("#day3Humidity").empty();
+            };
+
+
+            function dayTwoWeather(weatherInfo) {
+                var iconURL2 = "http://openweathermap.org/img/w/" + weatherInfo.list[8].weather[0].icon + ".png";
+                $("#city").text("City: " + weatherInfo.city.name);
+                $(".day2Day").text("Tomorrow");
+                $("#day2Conditions").text(weatherInfo.list[8].weather[0].main + ": " + weatherInfo.list[8].weather[0].description);
+                $("#imageSource2").attr("src", iconURL2);
+                $("#day2HighLow").text(+weatherInfo.list[8].main.temp_max + " /" + weatherInfo.list[8].main.temp_min);
+                $("#day2Humidity").text(weatherInfo.list[8].main.humidity + "%");
+            };
+
+            function dayThreeWeather(weatherInfo) {
+                var iconURL3 = "http://openweathermap.org/img/w/" + weatherInfo.list[16].weather[0].icon + ".png";
+                $("#city").text("City: " + weatherInfo.city.name);
+                $("#day3Day").text("The Day after");
+                $("#day3Conditions").text(weatherInfo.list[16].weather[0].main + ": " + weatherInfo.list[16].weather[0].description);
+                $("#imageSource3").attr("src", iconURL3);
+                $("#day3HighLow").text(+weatherInfo.list[16].main.temp_max + " /" + weatherInfo.list[16].main.temp_min);
+                $("#day3Humidity").text(weatherInfo.list[16].main.humidity + "%");
+            };
+            //initial ajax request getting just the information a specified latitude and longitude
+            // once the request from that server was accepted it will display current weather in SA
+            $.get("http://api.openweathermap.org/data/2.5/forecast", {
+                APPID: "26af6b0a60a8c3a60f802098b1484f4f",
+                lat: 29.423017,
+                lon: -98.48527,
+                units: "imperial"
+            }).done(function (weatherInfo) {
+                dayOneWeather(weatherInfo);
+            }).fail(function (jqXhr, status, error) {
+                alert("There was an error! Check the console for details");
+                console.log("Response status: " + status);
+                console.log("Error object: " + error);
+            });
+            // When you click submit, it will grab your lat and long and deliver you the weather for that area
             $("#submit").click(function () {
-                var latitude =  $("#latitude").val();
-                var longitude =  $("#longitude").val();
+                var latitude = $("#latitude").val();
+                var longitude = $("#longitude").val();
                 console.log(latitude + ", " + longitude);
 
-                $.get("http://api.openweathermap.org/data/2.5/weather", {
-                APPID: "26af6b0a60a8c3a60f802098b1484f4f",
-                lat:    latitude,
-                lon:   longitude,
-                units: "imperial"
-            }).done(function(weatherInfo) {
-                var iconURL = "http://openweathermap.org/img/w/" + weatherInfo.weather[0].icon + ".png";
-                $("#city").text("City: " + weatherInfo.name);
-                $("#day1Day").text("Today");
-                $("#day1Conditions").text(weatherInfo.weather[0].main + ": " + weatherInfo.weather[0].description);
-                $("#imageSource").attr("src", iconURL);
-                $("#day1HighLow").text( + weatherInfo.main.temp_max + " /" +weatherInfo.main.temp_min);
-                $("#day1Humidity").text(weatherInfo.main.humidity + "%");
+                $.get("http://api.openweathermap.org/data/2.5/forecast?lat=" + latitude + "&lon=" + longitude, {
+                    APPID: "26af6b0a60a8c3a60f802098b1484f4f",
+                    // lat:    latitude,
+                    // lon:   longitude,
+                    units: "imperial"
+                }).done(function (weatherInfo) {
+                    dayOneWeather(weatherInfo);
+                }).fail(function (jqXhr, status, error) {
+                    alert("There was an error! Check the console for details");
+                    console.log("Response status: " + status);
+                    console.log("Error object: " + error);
                 });
             });
-            // $("#send-stuff").click(function(){
-            //     var greeting =
-            // });
+
+            $("#showOneDay").click(function () {
+                    var latitude = $("#latitude").val();
+                    var longitude = $("#longitude").val();
+                    console.log(latitude + ", " + longitude);
+
+                    $.get("http://api.openweathermap.org/data/2.5/forecast?lat=" + latitude + "&lon=" + longitude, {
+                        APPID: "26af6b0a60a8c3a60f802098b1484f4f",
+                        // lat:    latitude,
+                        // lon:   longitude,
+                        units: "imperial"
+                    }).done(function (weatherInfo) {
+                        dayOneWeather(weatherInfo);
+                        removeDayTwoAndThree();
+                    });
+            });
+
+            $("#showThreeDay").click(function () {
+                var latitude = $("#latitude").val();
+                var longitude = $("#longitude").val();
+                console.log(latitude + ", " + longitude);
+
+                $.get("http://api.openweathermap.org/data/2.5/forecast?lat=" + latitude + "&lon=" + longitude, {
+                    APPID: "26af6b0a60a8c3a60f802098b1484f4f",
+                    // lat:    latitude,
+                    // lon:   longitude,
+                    units: "imperial"
+                }).done(function (weatherInfo) {
+                    $("#imageSource2").show();
+                    $("#imageSource3").show();
+                    dayOneWeather(weatherInfo);
+                    dayTwoWeather(weatherInfo);
+                    dayThreeWeather(weatherInfo);
+                });
+            });
         });
     </script>
     </body>
