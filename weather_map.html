@@ -64,8 +64,10 @@
         <button id="local_showThreeDay">3 Day</button>
         <button id="local_showFiveDay">5 Day</button>
         <br>
-        <h4>Please enter the latitude</h4><input type="text" id="latitude" name="latitude">
-        <h4>Please enter the longitude</h4><input type="text" id="longitude" name="longitude">
+        <div id="map"></div>
+        <br>
+        <h4>The latitude from the map</h4><input type="text" id="latitude" name="latitude">
+        <h4>The longitude from the map</h4><input type="text" id="longitude" name="longitude">
         <button type="submit" id="submit">submit</button>
         <div id="city"></div>
         <table>
@@ -118,42 +120,7 @@
         <button id="showThreeDay">3 Day</button>
         <button id="showFiveDay">5 Day</button>
         <br>
-        <div id="map"></div>
-        <div id="map_city"></div>
-        <div id="showLat"></div>
-        <div id="showLong"></div>
-        <table>
-            <tr>
-                <th>Day</th>
-                <th>Description</th>
-                <th>Image</th>
-                <th>High/Low</th>
-                <th>Humidity</th>
-            </tr>
-            <tr>
-                <td id="map_day1Day"></td>
-                <td id="map_day1Conditions"></td>
-                <td><img id="map_imageSource1"></td>
-                <td id="map_day1HighLow"></td>
-                <td id="map_day1Humidity"></td>
-            </tr>
-            <tr>
-                <td class="map_day2Day" id="map_day2Day"></td>
-                <td id="map_day2Conditions"></td>
-                <td><img id="map_imageSource2"></td>
-                <td id="map_day2HighLow"></td>
-                <td id="map_day2Humidity"></td>
-            </tr>
-            <tr>
-                <td id="map_day3Day"></td>
-                <td id="map_day3Conditions"></td>
-                <td><img id="map_imageSource3"></td>
-                <td id="map_day3HighLow"></td>
-                <td id="map_day3Humidity"></td>
-            </tr>
-        </table>
-        <button id="map_showOneDay">1 Day</button>
-        <button id="map_showThreeDay">3 Day</button>
+
 
     <script src="js/jquery-2.2.4.min.js"></script>
     <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyADndetZbm_WGmf_pO1Lhwystjxg1JX6qU
