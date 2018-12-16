@@ -1,5 +1,4 @@
 "use strict";
-
 function initMap() {
     // The location of Uluru
     var uluru = {lat: -25.344, lng: 131.036};
@@ -8,10 +7,94 @@ function initMap() {
         document.getElementById('map'), {zoom: 4, center: uluru});
     // The marker, positioned at Uluru
     var marker = new google.maps.Marker({position: uluru, map: map});
-}
+    map.addListener("click", function (map) {
+        //lat and lng is available in e object
+        console.log(map);
+        var lat = map.latLng.lat();
+        var long = map.latLng.lng();
+        console.log(lat + ", " + long);
+        function map_dayOneWeather(weatherInfo) {
+            var map_iconURL1 = "http://openweathermap.org/img/w/" + weatherInfo.list[0].weather[0].icon + ".png";
+            $("#map_city").text("City: " + weatherInfo.city.name);
+            $("#map_day1Day").text(weatherInfo.list[0].dt_txt);
+            $("#map_day1Conditions").text(weatherInfo.list[0].weather[0].main + ": " + weatherInfo.list[0].weather[0].description);
+            $("#map_imageSource1").attr("src", map_iconURL1);
+            $("#map_day1HighLow").text(weatherInfo.list[0].main.temp_max + " /" + weatherInfo.list[0].main.temp_min);
+            $("#map_day1Humidity").text(weatherInfo.list[0].main.humidity + "%");
+        };
+
+        function map_removeDayTwoAndThree() {
+            $("#map_day2Day").empty();
+            $("#map_day2Conditions").empty();
+            $("#map_imageSource2").hide();
+            $("#map_day2HighLow").empty();
+            $("#map_day2Humidity").empty();
+            $("#map_day3Day").empty();
+            $("#map_day3Conditions").empty();
+            $("#map_imageSource3").hide();
+            $("#map_day3HighLow").empty();
+            $("#map_day3Humidity").empty();
+        };
+
+        function map_dayTwoWeather(weatherInfo) {
+            var map_iconURL2 = "http://openweathermap.org/img/w/" + weatherInfo.list[8].weather[0].icon + ".png";
+            $("#map_day2Day").text(weatherInfo.list[8].dt_txt);
+            $("#map_day2Conditions").text(weatherInfo.list[8].weather[0].main + ": " + weatherInfo.list[8].weather[0].description);
+            $("#map_imageSource2").attr("src", map_iconURL2);
+            $("#map_day2HighLow").text(weatherInfo.list[8].main.temp_max + " /" + weatherInfo.list[8].main.temp_min);
+            $("#map_day2Humidity").text(weatherInfo.list[8].main.humidity + "%");
+        };
+
+        function map_dayThreeWeather(weatherInfo) {
+            var map_iconURL3 = "http://openweathermap.org/img/w/" + weatherInfo.list[16].weather[0].icon + ".png";
+            $("#map_day3Day").text(weatherInfo.list[16].dt_txt);
+            $("#map_day3Conditions").text(weatherInfo.list[16].weather[0].main + ": " + weatherInfo.list[16].weather[0].description);
+            $("#map_imageSource3").attr("src", map_iconURL3);
+            $("#map_day3HighLow").text(weatherInfo.list[16].main.temp_max + " /" + weatherInfo.list[16].main.temp_min);
+            $("#map_day3Humidity").text(weatherInfo.list[16].main.humidity + "%");
+        };
+
+        $("#map_showOneDay").click(function () {
+            var latitude = lat;
+            var longitude = long;
+            console.log(latitude + ", " + longitude);
+
+            $.get("http://api.openweathermap.org/data/2.5/forecast?lat=" + latitude + "&lon=" + longitude, {
+                APPID: "26af6b0a60a8c3a60f802098b1484f4f",
+                // lat:    latitude,
+                // lon:   longitude,
+                units: "imperial"
+            }).done(function (weatherInfo) {
+                map_dayOneWeather(weatherInfo);
+                map_removeDayTwoAndThree();
+            });
+        });
+        $("#map_showThreeDay").click(function () {
+            var latitude = lat;
+            var longitude = long;
+            console.log(latitude + ", " + longitude);
+
+            $.get("http://api.openweathermap.org/data/2.5/forecast?lat=" + latitude + "&lon=" + longitude, {
+                APPID: "26af6b0a60a8c3a60f802098b1484f4f",
+                // lat:    latitude,
+                // lon:   longitude,
+                units: "imperial"
+            }).done(function (weatherInfo) {
+                $("#map_imageSource2").show();
+                $("#map_imageSource3").show();
+                map_dayOneWeather(weatherInfo);
+                map_dayTwoWeather(weatherInfo);
+                map_dayThreeWeather(weatherInfo);
+            });
+        });
+
+    });
+
+};
 
 $(document).ready(function () {
-//functions for local
+
+    //functions for local
     function local_dayOneWeather(weatherInfo) {
         var local_iconURL1 = "http://openweathermap.org/img/w/" + weatherInfo.list[0].weather[0].icon + ".png";
         $("#local_city").text("City: " + weatherInfo.city.name);
