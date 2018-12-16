@@ -2,17 +2,70 @@
 <html lang="en">
     <head>
         <meta charset="UTF-8">
+        <meta name="viewport" content="initial-scale=1.0">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <link rel="stylesheet" href="css/weather_map.css">
         <title>Weather Map</title>
     </head>
     <body>
         <h1 id="mainHeader">Weather Application</h1>
+        <h4>By default we start with the local weather in San Antonio!</h4>
+        <br>
+        <p id="local_city"></p>
+        <br>
+        <table>
+            <tr>
+                <th>Day</th>
+                <th>Description</th>
+                <th>Image</th>
+                <th>High/Low</th>
+                <th>Humidity</th>
+            </tr>
+            <tr>
+                <td id="local_day1Day"></td>
+                <td id="local_day1Conditions"></td>
+                <td><img id="local_imageSource1"></td>
+                <td id="local_day1HighLow"></td>
+                <td id="local_day1Humidity"></td>
+            </tr>
+            <tr>
+                <td id="local_day2Day"></td>
+                <td id="local_day2Conditions"></td>
+                <td><img id="local_imageSource2"></td>
+                <td id="local_day2HighLow"></td>
+                <td id="local_day2Humidity"></td>
+            </tr>
+            <tr>
+                <td id="local_day3Day"></td>
+                <td id="local_day3Conditions"></td>
+                <td><img id="local_imageSource3"></td>
+                <td id="local_day3HighLow"></td>
+                <td id="local_day3Humidity"></td>
+            </tr>
+            <tr>
+                <td id="local_day4Day"></td>
+                <td id="local_day4Conditions"></td>
+                <td><img id="local_imageSource4"></td>
+                <td id="local_day4HighLow"></td>
+                <td id="local_day4Humidity"></td>
+            </tr>
+            <tr>
+                <td id="local_day5Day"></td>
+                <td id="local_day5Conditions"></td>
+                <td><img id="local_imageSource5"></td>
+                <td id="local_day5HighLow"></td>
+                <td id="local_day5Humidity"></td>
+            </tr>
+        </table>
+
+        <br>
+        <button id="local_showOneDay">1 Day</button>
+        <button id="local_showThreeDay">3 Day</button>
+        <button id="local_showFiveDay">5 Day</button>
+        <br>
         <h4>Please enter the latitude</h4><input type="text" id="latitude" name="latitude">
         <h4>Please enter the longitude</h4><input type="text" id="longitude" name="longitude">
         <button type="submit" id="submit">submit</button>
-        <br>
-        <p id="city"></p>
-        <br>
         <table>
             <tr>
                 <th>Day</th>
@@ -63,173 +116,11 @@
         <button id="showThreeDay">3 Day</button>
         <button id="showFiveDay">5 Day</button>
 
+        <div id="map"></div>
+
     <script src="js/jquery-2.2.4.min.js"></script>
-    <script>
-        "use strict";
-
-        $(document).ready(function () {
-
-            function dayOneWeather(weatherInfo) {
-                var iconURL1 = "http://openweathermap.org/img/w/" + weatherInfo.list[0].weather[0].icon + ".png";
-                $("#city").text("City: " + weatherInfo.city.name);
-                $("#day1Day").text("Today");
-                $("#day1Conditions").text(weatherInfo.list[0].weather[0].main + ": " + weatherInfo.list[0].weather[0].description);
-                $("#imageSource1").attr("src", iconURL1);
-                $("#day1HighLow").text(+weatherInfo.list[0].main.temp_max + " /" + weatherInfo.list[0].main.temp_min);
-                $("#day1Humidity").text(weatherInfo.list[0].main.humidity + "%");
-            };
-            function removeDayTwoAndThree(){
-                $("#day2Day").empty();
-                $("#day2Conditions").empty();
-                $("#imageSource2").hide();
-                $("#day2HighLow").empty();
-                $("#day2Humidity").empty();
-                $("#day3Day").empty();
-                $("#day3Conditions").empty();
-                $("#imageSource3").hide();
-                $("#day3HighLow").empty();
-                $("#day3Humidity").empty();
-            };
-
-            function dayTwoWeather(weatherInfo) {
-                var iconURL2 = "http://openweathermap.org/img/w/" + weatherInfo.list[8].weather[0].icon + ".png";
-                $(".day2Day").text("Tomorrow");
-                $("#day2Conditions").text(weatherInfo.list[8].weather[0].main + ": " + weatherInfo.list[8].weather[0].description);
-                $("#imageSource2").attr("src", iconURL2);
-                $("#day2HighLow").text(+weatherInfo.list[8].main.temp_max + " /" + weatherInfo.list[8].main.temp_min);
-                $("#day2Humidity").text(weatherInfo.list[8].main.humidity + "%");
-            };
-
-            function dayThreeWeather(weatherInfo) {
-                var iconURL3 = "http://openweathermap.org/img/w/" + weatherInfo.list[16].weather[0].icon + ".png";
-                $("#day3Day").text("Day 3");
-                $("#day3Conditions").text(weatherInfo.list[16].weather[0].main + ": " + weatherInfo.list[16].weather[0].description);
-                $("#imageSource3").attr("src", iconURL3);
-                $("#day3HighLow").text(+weatherInfo.list[16].main.temp_max + " /" + weatherInfo.list[16].main.temp_min);
-                $("#day3Humidity").text(weatherInfo.list[16].main.humidity + "%");
-            };
-            function dayFourWeather(weatherInfo) {
-                var iconURL4 = "http://openweathermap.org/img/w/" + weatherInfo.list[24].weather[0].icon + ".png";
-                $("#day4Day").text("Day 4");
-                $("#day4Conditions").text(weatherInfo.list[24].weather[0].main + ": " + weatherInfo.list[24].weather[0].description);
-                $("#imageSource4").attr("src", iconURL4);
-                $("#day4HighLow").text(+weatherInfo.list[24].main.temp_max + " /" + weatherInfo.list[24].main.temp_min);
-                $("#day4Humidity").text(weatherInfo.list[24].main.humidity + "%");
-            };
-            function dayFiveWeather(weatherInfo) {
-                var iconURL5 = "http://openweathermap.org/img/w/" + weatherInfo.list[32].weather[0].icon + ".png";
-                $("#day5Day").text("Day 5");
-                $("#day5Conditions").text(weatherInfo.list[32].weather[0].main + ": " + weatherInfo.list[32].weather[0].description);
-                $("#imageSource5").attr("src", iconURL5);
-                $("#day5HighLow").text(+weatherInfo.list[32].main.temp_max + " /" + weatherInfo.list[32].main.temp_min);
-                $("#day5Humidity").text(weatherInfo.list[32].main.humidity + "%");
-            };
-            function removeDayFourAndFive(){
-                $("#day4Day").empty();
-                $("#day4Conditions").empty();
-                $("#imageSource4").hide();
-                $("#day4HighLow").empty();
-                $("#day4Humidity").empty();
-                $("#day5Day").empty();
-                $("#day5Conditions").empty();
-                $("#imageSource5").hide();
-                $("#day5HighLow").empty();
-                $("#day5Humidity").empty();
-            };
-            //initial ajax request getting just the information a specified latitude and longitude
-            // once the request from that server was accepted it will display current weather in SA
-            $.get("http://api.openweathermap.org/data/2.5/forecast", {
-                APPID: "26af6b0a60a8c3a60f802098b1484f4f",
-                lat: 29.423017,
-                lon: -98.48527,
-                units: "imperial"
-            }).done(function (weatherInfo) {
-                dayOneWeather(weatherInfo);
-            }).fail(function (jqXhr, status, error) {
-                alert("There was an error! Check the console for details");
-                console.log("Response status: " + status);
-                console.log("Error object: " + error);
-            });
-            // When you click submit, it will grab your lat and long and deliver you the weather for that area
-            $("#submit").click(function () {
-                var latitude = $("#latitude").val();
-                var longitude = $("#longitude").val();
-                console.log(latitude + ", " + longitude);
-
-                $.get("http://api.openweathermap.org/data/2.5/forecast?lat=" + latitude + "&lon=" + longitude, {
-                    APPID: "26af6b0a60a8c3a60f802098b1484f4f",
-                    // lat:    latitude,
-                    // lon:   longitude,
-                    units: "imperial"
-                }).done(function (weatherInfo) {
-                    dayOneWeather(weatherInfo);
-                }).fail(function (jqXhr, status, error) {
-                    alert("There was an error! Check the console for details");
-                    console.log("Response status: " + status);
-                    console.log("Error object: " + error);
-                });
-            });
-
-            $("#showOneDay").click(function () {
-                    var latitude = $("#latitude").val();
-                    var longitude = $("#longitude").val();
-                    console.log(latitude + ", " + longitude);
-
-                    $.get("http://api.openweathermap.org/data/2.5/forecast?lat=" + latitude + "&lon=" + longitude, {
-                        APPID: "26af6b0a60a8c3a60f802098b1484f4f",
-                        // lat:    latitude,
-                        // lon:   longitude,
-                        units: "imperial"
-                    }).done(function (weatherInfo) {
-                        dayOneWeather(weatherInfo);
-                        removeDayTwoAndThree();
-                        removeDayFourAndFive();
-                    });
-            });
-
-            $("#showThreeDay").click(function () {
-                var latitude = $("#latitude").val();
-                var longitude = $("#longitude").val();
-                console.log(latitude + ", " + longitude);
-
-                $.get("http://api.openweathermap.org/data/2.5/forecast?lat=" + latitude + "&lon=" + longitude, {
-                    APPID: "26af6b0a60a8c3a60f802098b1484f4f",
-                    // lat:    latitude,
-                    // lon:   longitude,
-                    units: "imperial"
-                }).done(function (weatherInfo) {
-                    $("#imageSource2").show();
-                    $("#imageSource3").show();
-                    removeDayFourAndFive();
-                    dayOneWeather(weatherInfo);
-                    dayTwoWeather(weatherInfo);
-                    dayThreeWeather(weatherInfo);
-                });
-            });
-
-            $("#showFiveDay").click(function () {
-                var latitude = $("#latitude").val();
-                var longitude = $("#longitude").val();
-                console.log(latitude + ", " + longitude);
-
-                $.get("http://api.openweathermap.org/data/2.5/forecast?lat=" + latitude + "&lon=" + longitude, {
-                    APPID: "26af6b0a60a8c3a60f802098b1484f4f",
-                    // lat:    latitude,
-                    // lon:   longitude,
-                    units: "imperial"
-                }).done(function (weatherInfo) {
-                    $("#imageSource2").show();
-                    $("#imageSource3").show();
-                    $("#imageSource4").show();
-                    $("#imageSource5").show();
-                    dayOneWeather(weatherInfo);
-                    dayTwoWeather(weatherInfo);
-                    dayThreeWeather(weatherInfo);
-                    dayFourWeather(weatherInfo);
-                    dayFiveWeather(weatherInfo);
-                });
-            });
-        });
-    </script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyADndetZbm_WGmf_pO1Lhwystjxg1JX6qU
+    &callback=initMap" type="text/javascript"></script>
+    <script src="js/weather_map.js"></script>
     </body>
 </html>
