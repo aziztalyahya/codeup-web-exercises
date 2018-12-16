@@ -15,6 +15,7 @@ $(document).ready(function () {
     function local_dayOneWeather(weatherInfo) {
         var local_iconURL1 = "http://openweathermap.org/img/w/" + weatherInfo.list[0].weather[0].icon + ".png";
         $("#local_city").text("City: " + weatherInfo.city.name);
+        $("#local_time").text(weatherInfo.list[0].dt_txt);
         $("#local_day1Day").text("Today");
         $("#local_day1Conditions").text(weatherInfo.list[0].weather[0].main + ": " + weatherInfo.list[0].weather[0].description);
         $("#local_imageSource1").attr("src", local_iconURL1);
@@ -37,37 +38,37 @@ $(document).ready(function () {
 
     function local_dayTwoWeather(weatherInfo) {
         var local_iconURL2 = "http://openweathermap.org/img/w/" + weatherInfo.list[8].weather[0].icon + ".png";
-        $("#local_day2Day").text("Tomorrow");
+        $("#local_day2Day").text(weatherInfo.list[8].dt_txt);
         $("#local_day2Conditions").text(weatherInfo.list[8].weather[0].main + ": " + weatherInfo.list[8].weather[0].description);
         $("#local_imageSource2").attr("src", local_iconURL2);
-        $("#local_day2HighLow").text(+weatherInfo.list[8].main.temp_max + " /" + weatherInfo.list[8].main.temp_min);
+        $("#local_day2HighLow").text(weatherInfo.list[8].main.temp_max + " /" + weatherInfo.list[8].main.temp_min);
         $("#local_day2Humidity").text(weatherInfo.list[8].main.humidity + "%");
     };
 
     function local_dayThreeWeather(weatherInfo) {
         var local_iconURL3 = "http://openweathermap.org/img/w/" + weatherInfo.list[16].weather[0].icon + ".png";
-        $("#local_day3Day").text("Day 3");
+        $("#local_day3Day").text(weatherInfo.list[16].dt_txt);
         $("#local_day3Conditions").text(weatherInfo.list[16].weather[0].main + ": " + weatherInfo.list[16].weather[0].description);
         $("#local_imageSource3").attr("src", local_iconURL3);
-        $("#local_day3HighLow").text(+weatherInfo.list[16].main.temp_max + " /" + weatherInfo.list[16].main.temp_min);
+        $("#local_day3HighLow").text(weatherInfo.list[16].main.temp_max + " /" + weatherInfo.list[16].main.temp_min);
         $("#local_day3Humidity").text(weatherInfo.list[16].main.humidity + "%");
     };
 
     function local_dayFourWeather(weatherInfo) {
         var local_iconURL4 = "http://openweathermap.org/img/w/" + weatherInfo.list[24].weather[0].icon + ".png";
-        $("#local_day4Day").text("Day 4");
+        $("#local_day4Day").text(weatherInfo.list[24].dt_txt);
         $("#local_day4Conditions").text(weatherInfo.list[24].weather[0].main + ": " + weatherInfo.list[24].weather[0].description);
         $("#local_imageSource4").attr("src", local_iconURL4);
-        $("#local_day4HighLow").text(+weatherInfo.list[24].main.temp_max + " /" + weatherInfo.list[24].main.temp_min);
+        $("#local_day4HighLow").text(weatherInfo.list[24].main.temp_max + " /" + weatherInfo.list[24].main.temp_min);
         $("#local_day4Humidity").text(weatherInfo.list[24].main.humidity + "%");
     };
 
     function local_dayFiveWeather(weatherInfo) {
         var local_iconURL5 = "http://openweathermap.org/img/w/" + weatherInfo.list[32].weather[0].icon + ".png";
-        $("#local_day5Day").text("Day 5");
+        $("#local_day5Day").text(weatherInfo.list[32].dt_txt);
         $("#local_day5Conditions").text(weatherInfo.list[32].weather[0].main + ": " + weatherInfo.list[32].weather[0].description);
         $("#local_imageSource5").attr("src", local_iconURL5);
-        $("#local_day5HighLow").text(+weatherInfo.list[32].main.temp_max + " /" + weatherInfo.list[32].main.temp_min);
+        $("#local_day5HighLow").text(weatherInfo.list[32].main.temp_max + " /" + weatherInfo.list[32].main.temp_min);
         $("#local_day5Humidity").text(weatherInfo.list[32].main.humidity + "%");
     };
 
@@ -88,10 +89,11 @@ $(document).ready(function () {
     // functions for long and lat
     function dayOneWeather(weatherInfo) {
         var iconURL1 = "http://openweathermap.org/img/w/" + weatherInfo.list[0].weather[0].icon + ".png";
-        $("#day1Day").text("Today");
+        $("#city").text("City: " + weatherInfo.city.name);
+        $("#day1Day").text(weatherInfo.list[0].dt_txt);
         $("#day1Conditions").text(weatherInfo.list[0].weather[0].main + ": " + weatherInfo.list[0].weather[0].description);
         $("#imageSource1").attr("src", iconURL1);
-        $("#day1HighLow").text(+weatherInfo.list[0].main.temp_max + " /" + weatherInfo.list[0].main.temp_min);
+        $("#day1HighLow").text(weatherInfo.list[0].main.temp_max + " /" + weatherInfo.list[0].main.temp_min);
         $("#day1Humidity").text(weatherInfo.list[0].main.humidity + "%");
     };
 
@@ -110,37 +112,37 @@ $(document).ready(function () {
 
     function dayTwoWeather(weatherInfo) {
         var iconURL2 = "http://openweathermap.org/img/w/" + weatherInfo.list[8].weather[0].icon + ".png";
-        $(".day2Day").text("Tomorrow");
+        $(".day2Day").text(weatherInfo.list[8].dt_txt);
         $("#day2Conditions").text(weatherInfo.list[8].weather[0].main + ": " + weatherInfo.list[8].weather[0].description);
         $("#imageSource2").attr("src", iconURL2);
-        $("#day2HighLow").text(+weatherInfo.list[8].main.temp_max + " /" + weatherInfo.list[8].main.temp_min);
+        $("#day2HighLow").text(weatherInfo.list[8].main.temp_max + " /" + weatherInfo.list[8].main.temp_min);
         $("#day2Humidity").text(weatherInfo.list[8].main.humidity + "%");
     };
 
     function dayThreeWeather(weatherInfo) {
         var iconURL3 = "http://openweathermap.org/img/w/" + weatherInfo.list[16].weather[0].icon + ".png";
-        $("#day3Day").text("Day 3");
+        $("#day3Day").text(weatherInfo.list[16].dt_txt);
         $("#day3Conditions").text(weatherInfo.list[16].weather[0].main + ": " + weatherInfo.list[16].weather[0].description);
         $("#imageSource3").attr("src", iconURL3);
-        $("#day3HighLow").text(+weatherInfo.list[16].main.temp_max + " /" + weatherInfo.list[16].main.temp_min);
+        $("#day3HighLow").text(weatherInfo.list[16].main.temp_max + " /" + weatherInfo.list[16].main.temp_min);
         $("#day3Humidity").text(weatherInfo.list[16].main.humidity + "%");
     };
 
     function dayFourWeather(weatherInfo) {
         var iconURL4 = "http://openweathermap.org/img/w/" + weatherInfo.list[24].weather[0].icon + ".png";
-        $("#day4Day").text("Day 4");
+        $("#day4Day").text(weatherInfo.list[24].dt_txt);
         $("#day4Conditions").text(weatherInfo.list[24].weather[0].main + ": " + weatherInfo.list[24].weather[0].description);
         $("#imageSource4").attr("src", iconURL4);
-        $("#day4HighLow").text(+weatherInfo.list[24].main.temp_max + " /" + weatherInfo.list[24].main.temp_min);
+        $("#day4HighLow").text(weatherInfo.list[24].main.temp_max + " /" + weatherInfo.list[24].main.temp_min);
         $("#day4Humidity").text(weatherInfo.list[24].main.humidity + "%");
     };
 
     function dayFiveWeather(weatherInfo) {
         var iconURL5 = "http://openweathermap.org/img/w/" + weatherInfo.list[32].weather[0].icon + ".png";
-        $("#day5Day").text("Day 5");
+        $("#day5Day").text(weatherInfo.list[32].dt_txt);
         $("#day5Conditions").text(weatherInfo.list[32].weather[0].main + ": " + weatherInfo.list[32].weather[0].description);
         $("#imageSource5").attr("src", iconURL5);
-        $("#day5HighLow").text(+weatherInfo.list[32].main.temp_max + " /" + weatherInfo.list[32].main.temp_min);
+        $("#day5HighLow").text(weatherInfo.list[32].main.temp_max + " /" + weatherInfo.list[32].main.temp_min);
         $("#day5Humidity").text(weatherInfo.list[32].main.humidity + "%");
     };
 
