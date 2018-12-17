@@ -13,7 +13,8 @@ function initMap() {
         //lat and lng is available in e object
         $("#latitude").val(map.latLng.lat());
         $("#longitude").val(map.latLng.lng());
-        });
+
+    });
 };
 
 $(document).ready(function () {

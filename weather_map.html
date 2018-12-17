@@ -8,55 +8,63 @@
         <title>Weather Map</title>
     </head>
     <body>
-        <h1 id="mainHeader">Weather Application</h1>
-        <h4>By default we start with the local weather in San Antonio!</h4>
+    <div class="jumbotron jumbotron-fluid">
+        <div class="container">
+            <h1 class="display-4 text-center">Weather Application</h1>
+            <p class="lead text-center">By default we start with the local weather in San Antonio!</p>
+        </div>
+    </div>
         <br>
         <p id="local_city"></p>
         <p id="local_time"></p>
         <br>
-        <table>
+        <table class="table table-hover">
+            <thead class="thead-light">
             <tr>
-                <th>Day</th>
-                <th>Description</th>
-                <th>Image</th>
-                <th>High/Low</th>
-                <th>Humidity</th>
+                <th scope="col">Day</th>
+                <th scope="col">Description</th>
+                <th scope="col">Image</th>
+                <th scope="col">High/Low</th>
+                <th scope="col">Humidity</th>
             </tr>
-            <tr>
+            </thead>
+            <tbody>
+            <tr scope="row">
                 <td id="local_day1Day"></td>
                 <td id="local_day1Conditions"></td>
                 <td><img id="local_imageSource1"></td>
                 <td id="local_day1HighLow"></td>
                 <td id="local_day1Humidity"></td>
             </tr>
-            <tr>
+            <tr scope="row">
                 <td id="local_day2Day"></td>
                 <td id="local_day2Conditions"></td>
                 <td><img id="local_imageSource2"></td>
                 <td id="local_day2HighLow"></td>
                 <td id="local_day2Humidity"></td>
             </tr>
-            <tr>
+            <tr scope="row">
                 <td id="local_day3Day"></td>
                 <td id="local_day3Conditions"></td>
                 <td><img id="local_imageSource3"></td>
                 <td id="local_day3HighLow"></td>
                 <td id="local_day3Humidity"></td>
             </tr>
-            <tr>
+            <tr scope="row">
                 <td id="local_day4Day"></td>
                 <td id="local_day4Conditions"></td>
                 <td><img id="local_imageSource4"></td>
                 <td id="local_day4HighLow"></td>
                 <td id="local_day4Humidity"></td>
             </tr>
-            <tr>
+            <tr scope="row">
                 <td id="local_day5Day"></td>
                 <td id="local_day5Conditions"></td>
                 <td><img id="local_imageSource5"></td>
                 <td id="local_day5HighLow"></td>
                 <td id="local_day5Humidity"></td>
             </tr>
+            </tbody>
         </table>
 
         <br>
@@ -64,13 +72,27 @@
         <button id="local_showThreeDay">3 Day</button>
         <button id="local_showFiveDay">5 Day</button>
         <br>
-        <div id="map"></div>
+
         <br>
-        <h4>The latitude from the map</h4><input type="text" id="latitude" name="latitude">
-        <h4>The longitude from the map</h4><input type="text" id="longitude" name="longitude">
-        <button type="submit" id="submit">submit</button>
-        <div id="city"></div>
-        <table>
+    <div class="container">
+        <div class="row">
+            <div class="col-6">
+                <div id="map"></div>
+            </div>
+            <div class="col-6">
+                <h4>The latitude from the map</h4><input type="text" id="latitude" name="latitude">
+                <h4>The longitude from the map</h4><input type="text" id="longitude" name="longitude">
+                <button type="submit" id="submit">submit</button>
+                <div id="city"></div>
+                <button id="showOneDay">1 Day</button>
+                <button id="showThreeDay">3 Day</button>
+                <button id="showFiveDay">5 Day</button>
+            </div>
+        </div>
+    </div>
+
+    <table class="table table-hover">
+            <thead class="thead-light">
             <tr>
                 <th>Day</th>
                 <th>Description</th>
@@ -78,6 +100,8 @@
                 <th>High/Low</th>
                 <th>Humidity</th>
             </tr>
+            </thead>
+            <tbody>
             <tr>
                 <td id="day1Day"></td>
                 <td id="day1Conditions"></td>
@@ -113,13 +137,9 @@
                 <td id="day5HighLow"></td>
                 <td id="day5Humidity"></td>
             </tr>
+            </tbody>
         </table>
 
-        <br>
-        <button id="showOneDay">1 Day</button>
-        <button id="showThreeDay">3 Day</button>
-        <button id="showFiveDay">5 Day</button>
-        <br>
 
 
     <script src="js/jquery-2.2.4.min.js"></script>
