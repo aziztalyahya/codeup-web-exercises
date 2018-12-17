@@ -4,3 +4,17 @@
     height: 300px;  /* The height is 400 pixels */
     width: 95%;  /* The width is the width of the web page */
 }
+
+body{
+    background-image: url("img/blueClouds.jpg");
+}
+
+#paragragh{
+    padding-top: 10px;
+    padding-bottom: 10px;
+    font-size: 20px;
+}
+#city{
+    padding-top: 50px;
+    font-size: 30px;
+}
