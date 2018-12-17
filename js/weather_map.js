@@ -94,7 +94,7 @@ $(document).ready(function () {
 
     };
 
-    // functions for long and lat
+    // functions for map clicks
     function dayOneWeather(weatherInfo) {
         var iconURL1 = "http://openweathermap.org/img/w/" + weatherInfo.list[0].weather[0].icon + ".png";
         $("#city").text("City: " + weatherInfo.city.name);
@@ -181,7 +181,7 @@ $(document).ready(function () {
         console.log("Response status: " + status);
         console.log("Error object: " + error);
     });
-
+// on click of show 1 day local weather
     $("#local_showOneDay").click(function () {
         var latitude = 29.423017;
         var longitude = -98.48527;
@@ -189,8 +189,6 @@ $(document).ready(function () {
 
         $.get("http://api.openweathermap.org/data/2.5/forecast?lat=" + latitude + "&lon=" + longitude, {
             APPID: "26af6b0a60a8c3a60f802098b1484f4f",
-            // lat:    latitude,
-            // lon:   longitude,
             units: "imperial"
         }).done(function (weatherInfo) {
             local_dayOneWeather(weatherInfo);
@@ -198,7 +196,7 @@ $(document).ready(function () {
             local_removeDayFourAndFive();
         });
     });
-
+// on click of show 3 day local weather
     $("#local_showThreeDay").click(function () {
         var latitude = 29.423017;
         var longitude = -98.48527;
@@ -216,7 +214,7 @@ $(document).ready(function () {
             local_dayThreeWeather(weatherInfo);
         });
     });
-
+// on click of show 5 day local weather
     $("#local_showFiveDay").click(function () {
         var latitude = 29.423017;
         var longitude = -98.48527;
@@ -239,7 +237,8 @@ $(document).ready(function () {
             local_dayFiveWeather(weatherInfo);
         });
     });
-        // When you click submit, it will grab your lat and long and deliver you the weather for that area
+        // When you click submit, it will grab your lat and long and deliver
+        // the values to the input fields
         $("#submit").click(function () {
             var latitude = $("#latitude").val();
             var longitude = $("#longitude").val();
